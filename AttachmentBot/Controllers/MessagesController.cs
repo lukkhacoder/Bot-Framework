@@ -30,7 +30,7 @@ namespace AttachmentBot
                     return this.GetPdfMessage(message);
 
                 if (message.Text.ToLower() == "word")
-                    return this.GetWordDocumentMessage(message);
+                    return this.GetWordMessage(message);
 
                 if (message.Text.ToLower() == "rich content")
                     return this.GetRichContentMessage(message);
@@ -49,6 +49,7 @@ namespace AttachmentBot
                 new Attachment
                 {
                     Title = "Here is the PDF you requested." + Environment.NewLine,
+                    Text = "Hope you like attachments!",
                     TitleLink = "http://lukkhacoder.com",
                     ContentUrl = "http://lukkhacoder.com/shared/publicfiles/WhatAreTheBotBuilderSdks.pdf",
                     ContentType = "application/pdf",
@@ -104,9 +105,9 @@ namespace AttachmentBot
             };
             return returnMessage;
         }
-        private Message GetWordDocumentMessage(Message message)
+        private Message GetWordMessage(Message message)
         {
-            var returnMessage = message.CreateReplyMessage("Here is a message with a word document." + Environment.NewLine);
+            var returnMessage = message.CreateReplyMessage("Here is a message with a PDF." + Environment.NewLine);
             returnMessage.Attachments = new List<Attachment>
             {
                 new Attachment
